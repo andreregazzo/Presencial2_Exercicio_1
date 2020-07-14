@@ -24,7 +24,8 @@ namespace Presencial2_Exercicio_1.DAL
         public Endereco ListarEndereco(String cep)
         {
             //Formata o CEP Antes da Consulta
-            cep = cep.Insert(5, "-");
+            if (cep.Length == 8)
+                cep = cep.Insert(5, "-");
             return _context.enderecos.FirstOrDefault(x => x.Cep == cep);
         }
         public Endereco ListarEndereco(int id)
@@ -70,7 +71,6 @@ namespace Presencial2_Exercicio_1.DAL
             {
                 return false;
             }
-
             return true;
         }
 

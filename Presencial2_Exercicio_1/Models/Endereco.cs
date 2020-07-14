@@ -13,7 +13,7 @@ namespace Presencial2_Exercicio_1.Models
         [Key]
         public int EnderecoId { get; set; }
         
-        //[StringLength(8, ErrorMessage = "O CEP deve ter 8 caracteres.")]
+        [StringLength(9, ErrorMessage = "O CEP deve ter 9 caracteres no formato '99999-999'.")]
         public String Cep { get; set; }
 
         [MinLength(5, ErrorMessage = "O logradouro deve ter pelo menos 5 caracteres.")]

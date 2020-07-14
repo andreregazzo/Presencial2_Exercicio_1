@@ -17,20 +17,13 @@
 
 <body>
     <div class="container" style="padding-top:30px">
-        <h1>Aula Presencial 2<small> - Exercício 1 - André Regazzo</small></h1>
+        <h1>Aula Presencial 2<small> - Exercício 1 - André Regazzo - 1908239</small></h1>
         <br />
         <hr />
 
         <form asp-action="PesquisarEndereco" asp-controller="Endereco">
-            <input type="number" id="textBoxCEP" name="textBoxCEP" class="form-check-controle col-4" placeholder="Digite o CEP... " />
+            <input type="number" id="textBoxCEP" name="textBoxCEP" class="form-check-controle col-4" placeholder="Digite somente os numeros do CEP... " />
             <input type="submit" value="Consultar" class="btn btn-info" />
-
-            @if (@ViewData["Mensagem"] != null)
-            {
-                @:<div class="alert alert-danger" role="alert"> @ViewData["Mensagem"]</div>
-            }
-            <br />
-
         </form>
 
 

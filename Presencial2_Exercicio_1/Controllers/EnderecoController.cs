@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Presencial2_Exercicio_1.Controllers
 {
-    //André Regazzo
+    //André Regazzo - 1908239
     public class EnderecoController : Controller
     {
 
@@ -21,9 +21,7 @@ namespace Presencial2_Exercicio_1.Controllers
         {
             _dao = enderecoDAO;
         }
-        
-        
-        
+       
         public IActionResult Index()
         {
             if (TempData["Endereco"] != null)

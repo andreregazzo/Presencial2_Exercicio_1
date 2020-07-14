@@ -9,8 +9,8 @@ using Presencial2_Exercicio_1.Models;
 
 namespace Presencial2_Exercicio_1.Controllers
 {
-    
 
+    //André Regazzo - 1908239
     [Route("api/Endereco")]
     [ApiController]
     public class EnderecoApiController : ControllerBase
@@ -57,11 +57,9 @@ namespace Presencial2_Exercicio_1.Controllers
             
             if (endereco == null)  return BadRequest();
 
-
-           
-
-            _dao.Editar(endereco);
-
+            if(!_dao.Editar(endereco))
+                return NotFound(endereco);
+            
             return Ok(endereco);
         }
 
