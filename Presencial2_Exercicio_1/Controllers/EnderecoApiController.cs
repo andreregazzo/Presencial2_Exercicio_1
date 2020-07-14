@@ -50,12 +50,19 @@ namespace Presencial2_Exercicio_1.Controllers
         }
         
         //PUT: URL: /api/Endereco/AlterarEndereco
-        [HttpPost]
+        [HttpPut]
         [Route("AlterarEndereco")]
         public IActionResult AlterarEndereco(Endereco endereco)
         {
+            
+            if (endereco == null)  return BadRequest();
 
-            return null;
+
+           
+
+            _dao.Editar(endereco);
+
+            return Ok(endereco);
         }
 
         //[DELETE] URL: /api/Endereco/DeletarEndereco/2
