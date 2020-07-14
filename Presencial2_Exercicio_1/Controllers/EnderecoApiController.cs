@@ -40,8 +40,8 @@ namespace Presencial2_Exercicio_1.Controllers
 
         //POST: URL: /api/Endereco/CadastrarEndereco
         [HttpPost]
-        [Route("Cadastrar")]
-        public IActionResult Cadastrar(Endereco endereco)
+        [Route("CadastrarEndereco")]
+        public IActionResult CadastrarEndereco(Endereco endereco)
         {
             String mensagem = "";
             
