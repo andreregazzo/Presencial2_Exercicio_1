@@ -26,11 +26,15 @@ namespace Presencial2_Exercicio_1.DAL
             cep = cep.Insert(5, "-");
             return _context.enderecos.FirstOrDefault(x => x.Cep == cep);
         }
+        public Endereco ListarEndereco(int id)
+        {
+            //Formata o CEP Antes da Consulta
+            return _context.enderecos.FirstOrDefault(x => x.EnderecoId== id);
+        }
 
         public bool Cadastrar(Endereco endereco, out String Mensagem)
         {
             Mensagem = "";
-
             try
             {
                 _context.enderecos.Add(endereco);
@@ -41,6 +45,16 @@ namespace Presencial2_Exercicio_1.DAL
             {
                 return false;
             }
+        }
+
+
+        public bool Delete(Endereco endereco)
+        {
+            
+            _context.enderecos.Remove(endereco);
+            _context.SaveChanges();
+
+            return true;
         }
 
     }

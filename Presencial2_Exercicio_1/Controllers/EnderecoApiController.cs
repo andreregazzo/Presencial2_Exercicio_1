@@ -48,6 +48,35 @@ namespace Presencial2_Exercicio_1.Controllers
             _dao.Cadastrar(endereco, out mensagem);
             return Created("", endereco);
         }
+        
+        //PUT: URL: /api/Endereco/AlterarEndereco
+        [HttpPost]
+        [Route("AlterarEndereco")]
+        public IActionResult AlterarEndereco(Endereco endereco)
+        {
+
+            return null;
+        }
+
+        //[DELETE] URL: /api/Endereco/DeletarEndereco/2
+        [HttpDelete]
+        [Route("DeletarEndereco/{id}")]
+        public IActionResult DeletarEndereco(int id)
+        {
+            Endereco endereco = _dao.ListarEndereco(id);
+            if (endereco == null)
+            {
+                return NotFound();
+            }
+
+            if (!_dao.Delete(endereco))
+                return null;
+
+            return Ok(endereco);
+        }
+
+
+
 
     }
 
