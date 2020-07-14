@@ -21,7 +21,7 @@ namespace Presencial2_Exercicio_1.Controllers
             _dao = enderecoDAO;
         }
 
-        // URL: /api/Endereco/ListarEnderecos
+        //GET:  URL: /api/Endereco/ListarEnderecos
         [HttpGet]
         [Route("ListarEnderecos")]
         public IActionResult ListarEnderecos()
@@ -29,7 +29,7 @@ namespace Presencial2_Exercicio_1.Controllers
             return Ok(_dao.Listar());
         }
         
-        //URL: /api/Endereco/ListarEndereco/81730000
+        //GET: URL: /api/Endereco/ListarEndereco/81730000
         [HttpGet]
         [Route("ListarEndereco/{cep}")]
         public IActionResult ListarEndereco(String cep)
@@ -37,6 +37,18 @@ namespace Presencial2_Exercicio_1.Controllers
             Endereco e = _dao.ListarEndereco(cep);
             return Ok(_dao.ListarEndereco(cep));
         }
+
+        //POST: URL: /api/Endereco/CadastrarEndereco
+        [HttpPost]
+        [Route("Cadastrar")]
+        public IActionResult Cadastrar(Endereco endereco)
+        {
+            String mensagem = "";
+            
+            _dao.Cadastrar(endereco, out mensagem);
+            return Created("", endereco);
+        }
+
     }
 
     
