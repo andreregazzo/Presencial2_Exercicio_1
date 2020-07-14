@@ -20,6 +20,12 @@ namespace Presencial2_Exercicio_1.DAL
         {
             return _context.enderecos.ToList();
         }
+        public Endereco ListarEndereco(String cep)
+        {
+            //Formata o CEP Antes da Consulta
+            cep = cep.Insert(5, "-");
+            return _context.enderecos.FirstOrDefault(x => x.Cep == cep);
+        }
 
         public bool Cadastrar(Endereco endereco, out String Mensagem)
         {
